@@ -1,0 +1,9 @@
+[project]
+name = "asset-gen"
+version = "0.1.0"
+description = "Procedural asset generator for the Cyber Jum GBA game"
+requires-python = ">=3.11"
+dependencies = [
+    "pillow>=10.0",
+    "numpy>=1.26",
+]

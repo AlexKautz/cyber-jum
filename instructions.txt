@@ -1,0 +1,28 @@
+Cyber Jum Game
+
+I am a big fan of the Game Boy advance. I want to build a demo game boy advanced game with readable code. Here are the things I want:
+* I am working on a MacBook Pro laptop and using homebrew as my package manager. Assume I have not installed any packages yet.
+* I want to program the game in Rust, make it clean and readable.
+* include a markdown file that explains the code and points to the different files in different locations in the files and what they do
+* include a markdown file with careful instructions on how to compile the game into a real game boy advanced file
+* include a markdown file that simply describes what AI model is being used to generate this code and other similar information
+* include instructions on how to test this game boy advanced file with an emulator
+* in order to complete this task you may have to do Internet research on how to build a game boy advanced game
+What the game is like
+* the game is a combination top down and platformer
+* the player starts out top down like Pokémon and walks around. They walk up a wooded path with grass on either side of a dirt road. There are people standing along the side of the road and when one sees you they approach you and says something along the lines of "you you can't go any further until you play my cyber jump!"
+* the game then enters a 2D platformer similar to Mario. The player has to jump across a series of platformer and defeating enemies by jumping on their heads. If they reach the goal at the end of the level (represented by a checkered flag) they win it. If they die either by touching the side of an enemy or falling out the bottom, they lose a life and restart the platform. They have three lives. Once they're out of all of their lives, they lose it.
+* when the player loses a 2-D platform, it cuts back to the top down world and the person gets thrown all the way back to the start. If they win the 2-D platform, the person who talked to them congratulates them and allows them to continue walking down the path. Overall the path has five people each with their own unique level.
+Furthermore
+* Think of some nice quality of life improvements and add them to the game
+* add a title screen with a start button, a settings button where you can adjust the sound effects and music (don't forget to add sound effects and music!)
+* allow the player to save their game when they are in the top down world. This just saves where they are physically located.
+Assets
+* you will need to create these assets, create simple PNG's for the art, and simple music files for the music and sound effects. I don't care how you do it but you do need to create them!
+* Before you even start writing the game code create the assets and let me review the assets. Of course I will review the PNG's and the sound in formats I can look at before you convert
+* if you are using Python for any of your work use the UV tool (https://docs.astral.sh/uv/)
+Work
+* you will need to personally install the tooling if it does not already exist
+* I want you to personally compile the code to make sure it works
+* once we finally have a game boy advanced file, you won't be able to actually run it in an emulator but you can still analyze the file to see it size and stuff
+* when you run into problems while working on it go ahead and try to fix them

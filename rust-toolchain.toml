@@ -1,0 +1,5 @@
+# The GBA target (thumbv4t-none-eabi) is tier 3, so the standard library must
+# be built from source (build-std), which requires nightly Rust + rust-src.
+[toolchain]
+channel = "nightly"
+components = ["rust-src", "rustfmt", "clippy"]

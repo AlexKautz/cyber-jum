@@ -1,0 +1,22 @@
+[package]
+name = "cyber_jum"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+agb = "0.24.0"
+serde = { version = "1", default-features = false, features = ["derive"] }
+
+# The GBA has a slow CPU by modern standards: optimize even debug builds, as
+# recommended by the agb template.
+[profile.dev]
+opt-level = 3
+debug = true
+
+[profile.dev.build-override]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+debug = true

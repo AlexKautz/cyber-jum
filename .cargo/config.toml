@@ -1,0 +1,19 @@
+# Build configuration for the Game Boy Advance, based on the official agb
+# template (https://github.com/agbrs/template).
+
+[unstable]
+build-std = ["core", "alloc"]
+build-std-features = ["compiler-builtins-mem"]
+
+[build]
+target = "thumbv4t-none-eabi"
+
+[target.thumbv4t-none-eabi]
+rustflags = [
+    "-Clink-arg=-Tgba.ld",       # linker script provided by the agb crate
+    "-Ctarget-cpu=arm7tdmi",     # the GBA's CPU
+    "-Cforce-frame-pointers=yes",
+]
+
+# `cargo run` opens the ELF directly in the mGBA emulator.
+runner = ["mgba", "-l", "31"]
