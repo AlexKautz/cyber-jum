@@ -592,7 +592,7 @@ TALL_GRASS = [
 
 def topdown_tiles() -> Image.Image:
     rng = random.Random(7)
-    tree = sprite_from_ascii(TREE)
+    tree = sprite_from_ascii([r.replace(".", "G") for r in TREE])
     tiles = [
         grass_tile(rng, 4),
         grass_tile(rng, 8),
@@ -604,8 +604,8 @@ def topdown_tiles() -> Image.Image:
         tree.crop((8, 0, 16, 8)),
         tree.crop((0, 8, 8, 16)),
         tree.crop((8, 8, 16, 16)),
-        sprite_from_ascii(BUSH),
-        sprite_from_ascii(TALL_GRASS),
+        sprite_from_ascii([r.replace(".", "G") for r in BUSH]),
+        sprite_from_ascii([r.replace(".", "G") for r in TALL_GRASS]),
     ]
     return hstrip(tiles)
 
@@ -639,7 +639,7 @@ def block_fill(rng: random.Random) -> Image.Image:
 
 
 def platform_tile(kind: str) -> Image.Image:
-    img = Image.new("RGBA", (8, 8), (0, 0, 0, 0))
+    img = solid("p")
     px = img.load()
     for x in range(8):
         px[x, 2] = (*PALETTE["C"], 255)
