@@ -566,6 +566,10 @@ fn update_bugs(bugs: &mut [Bug], map: &Map) {
 
 impl Bug {
     fn show(&self, camera_x: i32, tick: u32, frame: &mut GraphicsFrame) {
+        let screen = self.pos.floor() - vec2(camera_x + 8, 9);
+        if !(-32..WIDTH + 32).contains(&screen.x) {
+            return;
+        }
         let sprite = match self.state {
             BugState::Walking => assets::ENEMY.sprite((tick as usize / 10) % 2),
             BugState::Squashed(0) => return, // gone
@@ -573,16 +577,20 @@ impl Bug {
         };
         Object::new(sprite)
             .set_hflip(self.direction > 0)
-            .set_pos(self.pos.floor() - vec2(camera_x + 8, 9))
+            .set_pos(screen)
             .show(frame);
     }
 }
 
 fn show_flag(flag_cell: Vector2D<i32>, camera_x: i32, tick: u32, frame: &mut GraphicsFrame) {
+    let screen_x = flag_cell.x * CELL - camera_x;
+    if !(-32..WIDTH + 32).contains(&screen_x) {
+        return;
+    }
     // The flag sprite is 16x32; `flag_cell` is where its lower half sits.
     Object::new(assets::FLAG.sprite((tick as usize / 20) % 2))
         .set_pos(vec2(
-            flag_cell.x * CELL - camera_x,
+            screen_x,
             (flag_cell.y - 1) * CELL,
         ))
         .show(frame);
