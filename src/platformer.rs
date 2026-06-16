@@ -214,6 +214,7 @@ pub fn run(
                     }
                     hero = Hero::new(start);
                     bugs = spawn_bugs(&map);
+                    phase = Phase::Play;
                 }
             }
             Phase::Won(ref mut timer) => {
