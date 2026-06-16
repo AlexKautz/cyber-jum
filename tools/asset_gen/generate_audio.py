@@ -160,6 +160,9 @@ def sfx() -> None:
     write_wav(np.concatenate([
         envelope(square(note_freq(n), 0.18, duty=0.25)) for n in ["E4", "C4", "A3"]
     ] + [envelope(square(note_freq("E3"), 0.4, duty=0.25))]), "lose_life.wav")
+    write_wav(np.concatenate([
+        envelope(square(note_freq(n), 0.06, duty=0.5)) for n in ["F3", "D3", "G2"]
+    ] + [decay(noise(0.15, vol=0.8, seed=5))]), "enemy_death.wav")
     write_wav(np.concatenate(
         [envelope(square(note_freq(n), 0.11, duty=0.5)) for n in ["C5", "E5", "G5"]]
         + [envelope(square(note_freq("C6"), 0.45, duty=0.5))]), "win_level.wav")

@@ -179,7 +179,7 @@ pub fn run(
             }
             Phase::Play => {
                 hero.update(input, audio, &map);
-                update_bugs(&mut bugs, &map);
+                update_bugs(&mut bugs, &map, audio);
 
                 if let Some(stomped) = hero.collide_bugs(&mut bugs, input) {
                     if stomped {
@@ -545,10 +545,17 @@ impl Hero {
 // Bugs and the flag
 // ---------------------------------------------------------------------------
 
-fn update_bugs(bugs: &mut [Bug], map: &Map) {
+fn update_bugs(bugs: &mut [Bug], map: &Map, audio: &mut crate::audio::Audio) {
     for bug in bugs.iter_mut() {
         match bug.state {
-            BugState::Squashed(ref mut timer) => *timer = timer.saturating_sub(1),
+            BugState::Squashed(ref mut timer) => {
+                if *timer > 0 {
+                    *timer -= 1;
+                    if *timer == 0 {
+                        audio.sfx(crate::assets::SFX_ENEMY_DEATH);
+                    }
+                }
+            }
             BugState::Walking => {
                 // Turn around at walls and at the edge of the floor.
                 let ahead_x = bug.pos.x.floor() + bug.direction * (BUG_HW + 2);

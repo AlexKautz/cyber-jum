@@ -64,6 +64,7 @@ pub static FONT: Font = include_font!("assets/fonts/pixelated.ttf", 8);
 // ---------------------------------------------------------------------------
 pub static SFX_JUMP: SoundData = include_wav!("assets/sounds/jump.wav");
 pub static SFX_STOMP: SoundData = include_wav!("assets/sounds/stomp.wav");
+pub static SFX_ENEMY_DEATH: SoundData = include_wav!("assets/sounds/enemy_death.wav");
 pub static SFX_HURT: SoundData = include_wav!("assets/sounds/hurt.wav");
 pub static SFX_LOSE_LIFE: SoundData = include_wav!("assets/sounds/lose_life.wav");
 pub static SFX_WIN_LEVEL: SoundData = include_wav!("assets/sounds/win_level.wav");
