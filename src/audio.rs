@@ -19,7 +19,7 @@ pub struct Audio<'gba> {
 
 /// Convert a 0-10 user volume into the mixer's fixed-point gain.
 fn gain(volume: u8) -> Num<i16, 8> {
-    Num::new(volume as i16) / Num::new(MAX_VOLUME as i16)
+    Num::new(volume as i16) / (MAX_VOLUME as i16)
 }
 
 impl<'gba> Audio<'gba> {
