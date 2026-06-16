@@ -45,3 +45,15 @@ agent could not interactively play-test it in an emulator. Logic-level
 validation (level solvability asserts, physics/level-design rule matching)
 was done statically. If something misbehaves in play, `TESTING.md` describes
 how to surface agb's panic messages in mGBA.
+
+## Subsequent Edits
+
+- **Model:** Antigravity
+- **Vendor:** Google DeepMind (Advanced Agentic Coding team)
+- **Role:** Agentic coding assistant pair programming with the user
+- **Contributions (June 2026):**
+  - Diagnosed and fixed a fixed-point integer division bug in `src/audio.rs` that had muted the game's music and sound effects.
+  - Adjusted the Python asset generation script to fix an issue where background elements (trees, bushes) rendered with a bright magenta background because of single-layer transparency handling.
+  - Fixed a state transition bug in `src/platformer.rs` that left the player stuck in the dying animation instead of respawning.
+  - Fixed a sprite wrap-around rendering bug where off-screen objects were being drawn on-screen by implementing horizontal coordinate culling.
+  - Added an entirely new glitchy enemy death sound effect to `tools/asset_gen/generate_audio.py` and implemented its playback hook into the engine.
