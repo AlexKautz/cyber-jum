@@ -535,6 +535,7 @@ impl Hero {
             assets::HERO_PLATFORM.sprite(0)
         };
         Object::new(sprite)
+            .set_priority(Priority::P2)
             .set_hflip(self.facing_left)
             .set_pos(self.pos.floor() - vec2(camera_x + 8, 8))
             .show(frame);
@@ -583,6 +584,7 @@ impl Bug {
             BugState::Squashed(_) => assets::ENEMY.sprite(2),
         };
         Object::new(sprite)
+            .set_priority(Priority::P2)
             .set_hflip(self.direction > 0)
             .set_pos(screen)
             .show(frame);
@@ -596,6 +598,7 @@ fn show_flag(flag_cell: Vector2D<i32>, camera_x: i32, tick: u32, frame: &mut Gra
     }
     // The flag sprite is 16x32; `flag_cell` is where its lower half sits.
     Object::new(assets::FLAG.sprite((tick as usize / 20) % 2))
+        .set_priority(Priority::P2)
         .set_pos(vec2(
             screen_x,
             (flag_cell.y - 1) * CELL,

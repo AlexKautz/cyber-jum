@@ -63,7 +63,8 @@ Hold B to run. START opens the pause menu, where SAVE GAME writes to SRAM.
 Each level is 60x10 cells of ASCII art plus its challenger's intro/outro
 dialogue. The legend and the level-design rules (max pit width, max climb
 height — derived from the jump physics) are in the header comment. The maps
-are validated by asserts at load time, so a broken edit fails loudly.
+are validated by asserts at load time, so a broken edit fails loudly. (See
+[DIALOGUE.md](DIALOGUE.md) for the extracted dialogue script).
 
 ### [src/platformer.rs](src/platformer.rs) — side-scrolling gameplay
 

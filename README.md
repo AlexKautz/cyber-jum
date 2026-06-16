@@ -23,6 +23,7 @@ quality-of-life touches (coyote time, jump buffering, variable jump height).
 | [BUILDING.md](BUILDING.md) | Compiling the game into a real `.gba` ROM from a clean Mac |
 | [TESTING.md](TESTING.md) | Playing it in the mGBA emulator + a test checklist |
 | [AI_PROVENANCE.md](AI_PROVENANCE.md) | Which AI model generated this project |
+| [DIALOGUE.md](DIALOGUE.md) | The complete script of all challenger interactions |
 | [assets/README.md](assets/README.md) | Every art/audio asset and how to regenerate them |
 
 ## Quick start

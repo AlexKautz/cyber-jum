@@ -269,10 +269,12 @@ pub fn run(
             let screen = *pos - camera;
             if (-16..HEIGHT + 16).contains(&screen.y) {
                 Object::new(assets::NPCS.sprite(npc))
+                    .set_priority(Priority::P2)
                     .set_pos(screen - vec2(8, 8))
                     .show(&mut frame);
                 if matches!(mode, Mode::Alert { npc: n, .. } if n == npc) {
                     Object::new(assets::UI.sprite(2))
+                        .set_priority(Priority::P2)
                         .set_pos(screen - vec2(4, 22))
                         .show(&mut frame);
                 }
@@ -373,6 +375,7 @@ fn show_hero(
         0
     };
     Object::new(assets::HERO_TOPDOWN.sprite(base + step))
+        .set_priority(Priority::P2)
         .set_hflip(matches!(facing, Facing::Side { left: true }))
         .set_pos(screen - vec2(8, 8))
         .show(frame);
